@@ -1,0 +1,28 @@
+<div class="container">
+    <div *ngIf="countryData != null; else no_data">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Capital</th>
+                    <th scope="col">Population</th>
+                    <th scope="col">Currency | Symbol</th>
+                    <th scope="col">Flag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">{{countryData.name}}</th>
+                    <td>{{countryData.capital}}</td>
+                    <td>{{countryData.population}}</td>
+                    <td>{{countryData.currencies[0].name}} | {{countryData.currencies[0].symbol}}</td>
+                    <td><img [src]="countryData.flag" [alt]="countryData.name"></td>
+            </tbody>
+        </table>
+    </div>
+    <ng-template #no_data>
+        <div class="card">
+            Please select region and country !
+        </div>
+    </ng-template>
+</div>

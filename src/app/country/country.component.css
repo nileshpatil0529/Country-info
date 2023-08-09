@@ -1,0 +1,12 @@
+table {
+    border: solid 1px rgb(196, 192, 192);
+}
+img {
+    width: 100px;
+    height: 60px;
+}
+.card {
+    text-align: center;
+    color: indianred;
+    padding: 10px;
+}
