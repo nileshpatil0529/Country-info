@@ -1,27 +1,56 @@
-# RegionCountryInfo
+# Angular Country Information App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.8.
+This is a simple Angular application that allows users to explore and display information about countries in different regions. The application uses Angular, TypeScript, Observables, and NGRX for state management.
 
-## Development server
+## Prerequisites
+  - Node Version 16.0
+  - Angular Version 16.1.0
+  - RXJS Version 6.0
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+Clone this repository to your local machine.
+Navigate to the project directory: cd angular-country-info-app.
+Install dependencies: `npm install`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Usage
+
+Start the development server: `ng serve`.
+Open your web browser and navigate to http://localhost:4200.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Application Overview
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Components
+1. a) Regions Dropdown
+This component displays a dropdown list of available regions (Europe and Asia) for the user to select.
 
-## Running end-to-end tests
+   b) Countries Dropdown
+This component displays a dropdown list of countries based on the selected region. The list is populated using data from the API.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Country Details Table
+This component displays detailed information about the selected country, including its name, capital, population, currencies, and flag.
 
-## Further help
+## NGRX State Management
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The application uses NGRX for state management. The following components are implemented:
+
+- State: The application has a single state that contains the selected region and the list of countries for each region.
+
+- Reducers: Reducers handle state transitions based on dispatched actions. They update the state immutably.
+
+- Actions: Actions are dispatched to trigger state changes. In this app, actions are used to fetch region-specific country data and update the state accordingly.
+
+- Selectors: Selectors are used to efficiently retrieve data from the state. They encapsulate the logic for deriving specific pieces of information from the state.
+
+- Effects: Effects handle asynchronous operations such as API requests. In this app, effects fetch country data based on the selected region and update the state.
+
+## Coding Style and Standards
+
+Code follows the Angular Style Guide and TypeScript best practices.
+Variable and function names are descriptive and follow camelCase convention.
+HTML and CSS classes follow kebab-case naming convention.
+Comments are added to clarify complex logic or important concepts.
