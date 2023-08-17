@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CountryService } from '../service/country.service';
+import { CountryService } from '../utils/service/country.service';
 
 @Component({
   selector: 'app-country',

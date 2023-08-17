@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CountryComponent } from './country.component';
-import { CountryService } from '../service/country.service';
+import { CountryService } from '../utils/service/country.service';
 import { of } from 'rxjs';
 
 describe('CountryComponent', () => {

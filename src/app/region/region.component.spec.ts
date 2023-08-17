@@ -2,8 +2,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { of } from 'rxjs';
-import { CountryService } from '../service/country.service';
-import { loadCountries } from '../store/regions.actions';
+import { CountryService } from '../utils/service/country.service';
+import { loadCountries } from '../utils/store/country/country.actions';
 import { RegionComponent } from './region.component';
 
 describe('RegionComponent', () => {

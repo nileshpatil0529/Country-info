@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { CountryService } from '../service/country.service';
-import { loadCountries } from '../store/regions.actions';
-import { getRegions } from '../store/regions.selector';
+
+import { CountryService } from '../utils/service/country.service';
+import { loadCountries } from '../utils/store/country/country.actions';
+import { getRegions } from '../utils/store/region/regions.selector';
+import { getCountries } from '../utils/store/country/country.selector';
 
 @Component({
   selector: 'app-region',
@@ -12,7 +14,8 @@ import { getRegions } from '../store/regions.selector';
 })
 export class RegionComponent implements OnInit {
 
-  regions$!: Observable<{ regions: string[], countries: any[] }>;
+  regions$!: Observable<{ regions: string[]}>;
+  countries$!: Observable<{ countries: any[] }>;
   countries: any[] = [];
   selectedRegion = '';
   selectedCountry: any;
@@ -22,6 +25,7 @@ export class RegionComponent implements OnInit {
 
   ngOnInit(): void {
     this.regions$ = this.store.select(getRegions);
+    this.countries$ = this.store.select(getCountries);
   }
 
   onRegionChange() {
@@ -30,7 +34,7 @@ export class RegionComponent implements OnInit {
 
   onCountryChange() {
     let country: any;
-    this.regions$?.subscribe(data => {
+    this.countries$?.subscribe(data => {
       country = data.countries.find(data => this.selectedCountry === data.name);
       this.countryService.setCountry(country);
     })
